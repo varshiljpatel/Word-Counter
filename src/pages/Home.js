@@ -4,13 +4,19 @@ const Home = () => {
     const [input, setInput] = useState('');
     const [words, setWords] = useState(0);
     const [characters, setCharacters] = useState(0);
+    let isInput = false;
 
     // on click function on button
     const handleClick = () => {
+        if (input != '') {
+            isInput = true
+        }
         // count words in string
-        let clearWhiteSpace = input.replace(/\s+/g, ' ').trim();
-        let wordsCount = clearWhiteSpace.split(' ');
-        setWords(wordsCount.length)
+        if (isInput) {
+            let clearWhiteSpace = input.replace(/\s+/g, ' ').trim();
+            let wordsCount = clearWhiteSpace.split(' ');
+            setWords(wordsCount.length)
+        }
 
         // count characters in string
         let clearSpace = input.replace(/\s+/g, '').trim();
